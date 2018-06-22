@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="content">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+      <ion-list>
+        <ion-item text-center>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="person" item-left></ion-icon>
+          <ion-label stacked>Username:</ion-label>
+          <ion-input  type="text" placeholder="Username" formControlName="username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="key" item-left></ion-icon>
+          <ion-label stacked>Password:</ion-label>
+          <ion-input  type="password" placeholder="Password" formControlName="password"></ion-input>
+        </ion-item>
+        <div padding>
+          <button ion-button block type="submit" [disabled]= "!loginForm.valid">Login</button>
+        </div>
+
+      </ion-list>
+    </form>
+
+    <div text-center>
+      <a ion-button block clear (click)="goToSignup()" >Nueva Cuenta</a>
+    </div>
+</ion-content>

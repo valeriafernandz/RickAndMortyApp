@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form [formGroup]="myForm" (ngSubmit)="signup()">
+        <ion-list>
+          <ion-item text-center>
+          </ion-item>
+          <ion-item>
+              <ion-icon name="person" item-left></ion-icon>
+              <ion-label stacked>Name:</ion-label>
+              <ion-input  type="text" placeholder="Name" formControlName="name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="person" item-left></ion-icon>
+                <ion-label stacked>Last Name:</ion-label>
+                <ion-input  type="text" placeholder="Last Name" formControlName="lastname"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-icon name="mail" item-left></ion-icon>
+                  <ion-label stacked>Email:</ion-label>
+                  <ion-input  type="text" placeholder="Email" formControlName="email"></ion-input>
+                </ion-item>
+          <ion-item>
+            <ion-icon name="contact" item-left></ion-icon>
+            <ion-label stacked>Username:</ion-label>
+            <ion-input  type="text" placeholder="Username" formControlName="username"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-icon name="key" item-left></ion-icon>
+            <ion-label stacked>Password:</ion-label>
+            <ion-input  type="password" placeholder="Password" formControlName="password"></ion-input>
+          </ion-item>
+  
+          <div padding>
+            <button ion-button block type="submit" [disabled]="!myForm.valid">Signup!</button>
+          </div>
+  
+        </ion-list>
+      </form>
+
+</ion-content>
