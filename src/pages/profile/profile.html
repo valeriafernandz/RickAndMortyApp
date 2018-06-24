@@ -1,18 +1,37 @@
-<!--
-  Generated template for the ProfilePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>profile</ion-title>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+
+  <img src="../assets/imgs/logoram.png" alt="">
+
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../assets/imgs/rickgif.gif" alt="">
+      </ion-avatar>
+      <h1>Valeria Fernandez</h1>
+      <span><strong>Status: </strong></span><br>
+      <span><strong>Species: </strong></span><br>
+      <span><strong>Gender: </strong></span><br>
+      <span><strong>Origin: </strong></span><br>
+      <span><strong>Location: </strong></span><br>
+    </ion-item>
+  </ion-card>
+
+  <ion-content class="card-background-page">
+    <ion-card>
+      <img src="../assets/imgs/backg2.jpg" alt="">
+      <div class="card-title">Rick and Morty</div>
+      <div class="card-subtitle">Favorites</div>
+    </ion-card>
+  </ion-content>
 
 </ion-content>

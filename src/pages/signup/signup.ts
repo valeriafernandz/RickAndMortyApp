@@ -21,7 +21,6 @@ export class SignupPage {
   ) {
     this.myForm = this.formBuilder.group({
       name:['', Validators.required],
-      lastname:['', Validators.required],
       email:['', Validators.required],
       username:['',Validators.required],
       password: ['',Validators.required]
@@ -35,13 +34,11 @@ export class SignupPage {
 
   signup(){
     console.log("Name:" + this.myForm.value.name);
-    console.log("LastName:" + this.myForm.value.lastname);
     console.log("Email:" + this.myForm.value.email);
     console.log("Username:" + this.myForm.value.username);
     console.log("Password:" + this.myForm.value.password);
     this.nativeStorage.setItem('myitem',{
       name: this.myForm.value.name,
-      lastname: this.myForm.value.lastname,
       email: this.myForm.value.email,
       username: this.myForm.value.username,
       password: this.myForm.value.password

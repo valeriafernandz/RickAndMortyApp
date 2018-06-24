@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="home">
 
   <ion-card *ngFor="let i of results">
     <img src="{{i.image}}" alt="">
@@ -16,11 +16,11 @@
   <ion-card-title>
     {{i.name}}
   </ion-card-title>
-  <span>Status: {{i.status}}</span><br>
-  <span>Species: {{i.species}}</span><br>
-  <span>Gender: {{i.gender}}</span><br>
-  <span>Origin: {{i.origin.name}}</span><br>
-  <span>Location: {{i.location.name}}</span><br>
+  <span><strong>Status: </strong>{{i.status}}</span><br>
+  <span><strong>Species: </strong>{{i.species}}</span><br>
+  <span><strong>Gender: </strong>{{i.gender}}</span><br>
+  <span><strong>Origin: </strong>{{i.origin.name}}</span><br>
+  <span><strong>Location: </strong>{{i.location.name}}</span><br>
 </ion-card-content>
 </ion-card>
 
