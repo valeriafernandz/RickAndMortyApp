@@ -16,8 +16,7 @@ export class HomePage {
   ) {}
 
   results = [];
-  page: number = 5;
-  index: number = 20;
+  page: number = 1;
 
   ionViewDidLoad(){
     this.requestProvider.getCharacters(this.page).subscribe(data =>{
@@ -27,13 +26,14 @@ export class HomePage {
         this.results.push(data.results[i]);
       }
       console.log(this.results);
+      this.page+=1;
     });
   }
 
   doInfinite(infiniteScroll){
     console.log("Begin async operation");
 
-    this.requestProvider.getCharacters(this.index).subscribe(data =>{
+    this.requestProvider.getCharacters(this.page).subscribe(data =>{
       console.log(data);
       for(let i = 0; i < data.results.length; i++){
         this.results.push(data.results[i]);
