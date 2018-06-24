@@ -8,9 +8,29 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let i of results">{{i.name}}</ion-item>
-  </ion-list>
+
+  <ion-card *ngFor="let i of results">
+    <img src="{{i.image}}" alt="">
+  
+<ion-card-content>
+  <ion-card-title>
+    {{i.name}}
+  </ion-card-title>
+  <span>Status: {{i.status}}</span><br>
+  <span>Species: {{i.species}}</span><br>
+  <span>Gender: {{i.gender}}</span><br>
+  <span>Origin: {{i.origin.name}}</span><br>
+  <span>Location: {{i.location.name}}</span><br>
+</ion-card-content>
+</ion-card>
+
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more characters...">
+  </ion-infinite-scroll-content>
+
+</ion-infinite-scroll>
+
 
   
 </ion-content>

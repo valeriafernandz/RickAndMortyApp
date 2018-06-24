@@ -16,16 +16,32 @@ export class HomePage {
   ) {}
 
   results = [];
+  page: number = 5;
   index: number = 20;
 
   ionViewDidLoad(){
-    this.requestProvider.getCharacters(0).subscribe(data =>{
+    this.requestProvider.getCharacters(this.page).subscribe(data =>{
       console.log(data);
       
       for(let i = 0; i < data.results.length; i++){
         this.results.push(data.results[i]);
       }
       console.log(this.results);
+    });
+  }
+
+  doInfinite(infiniteScroll){
+    console.log("Begin async operation");
+
+    this.requestProvider.getCharacters(this.index).subscribe(data =>{
+      console.log(data);
+      for(let i = 0; i < data.results.length; i++){
+        this.results.push(data.results[i]);
+      }
+      console.log(this.results);
+      console.log("Async operation has ended");
+      this.page += 1;
+      infiniteScroll.complete();
     });
   }
 

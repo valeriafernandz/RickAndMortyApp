@@ -10,15 +10,16 @@ import { Observable } from 'rxjs/Observable';
 */
 @Injectable()
 export class HttpRequestProvider {
-  page: number;
-  url: string = "https://rickandmortyapi.com/api/character?page=2";
+  page: number=1;
+  url: string = "https://rickandmortyapi.com/api/character?page"+this.page;
 
   constructor(public http: HttpClient) {
     console.log('Hello HttpRequestProvider Provider');
   }
 
-  getCharacters(startIndex): Observable<any>{
-    return this.http.get<any>(`${this.url}=${startIndex}`);
+  getCharacters(page): Observable<any>{
+    return this.http.get<any>(`${this.url}=${page}`);
+
   }
 
 }
