@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class HttpRequestProvider {
   page: number=1;
-  url: string = "https://rickandmortyapi.com/api/character?page"+this.page;
+  url: string = "https://rickandmortyapi.com/api/character?page";
 
   constructor(public http: HttpClient) {
     console.log('Hello HttpRequestProvider Provider');
