@@ -23,7 +23,7 @@ export class HomePage {
       console.log(data);
       
       for(let i = 0; i < data.results.length; i++){
-        this.results.push(data.results[i].name);
+        this.results.push(data.results[i]);
       }
       console.log(this.results);
     });
