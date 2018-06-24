@@ -39,7 +39,7 @@ export class SignupPage {
     console.log("Email:" + this.myForm.value.email);
     console.log("Username:" + this.myForm.value.username);
     console.log("Password:" + this.myForm.value.password);
-    this.nativeStorage.setItem("myitem",{
+    this.nativeStorage.setItem('myitem',{
       name: this.myForm.value.name,
       lastname: this.myForm.value.lastname,
       email: this.myForm.value.email,

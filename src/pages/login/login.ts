@@ -13,8 +13,7 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
   loginForm: FormGroup;
-  private username: string;
-  private password: string;
+  
 
   constructor(
     public navCtrl: NavController, 
@@ -41,11 +40,12 @@ export class LoginPage {
     console.log("Username:" + this.loginForm.value.username);
     console.log("Password:" + this.loginForm.value.password);
     
-    this.nativeStorage.getItem(this.username).then(
+    this.nativeStorage.getItem('myitem').then(
       data => {
-        
         console.log(data);
-        alert(JSON.stringify(data))
+        this.navCtrl.push(HomePage);
+
+        alert(JSON.stringify(data));
       }, error => console.error(error)
     );
   }
