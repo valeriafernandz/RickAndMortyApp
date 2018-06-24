@@ -12,24 +12,36 @@ import { HomePage } from '../home/home';
 })
 export class SignupPage {
   myForm: FormGroup;
+  usuario = {name:'', email:'', username:'', password:'', status: '', species:'', gender:'', origin:'',location:''}
   
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public nativeStorage: NativeStorage,
+    private nativeStorage: NativeStorage,
     public formBuilder: FormBuilder
   ) {
     this.myForm = this.formBuilder.group({
       name:['', Validators.required],
       email:['', Validators.required],
       username:['',Validators.required],
-      password: ['',Validators.required]
+      password: ['',Validators.required],
+      status: ['',Validators.required],
+      species: ['',Validators.required],
+      gender: ['',Validators.required],
+      origin: ['',Validators.required],
+      location: ['',Validators.required],
+
     });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
-    
+    this.nativeStorage.keys().then(keys => console.log(keys));
+  }
+
+  Available(): Promise<boolean>{
+    return this.nativeStorage.keys().then(keys=>
+    keys.some(key=> (this.usuario.username ===key)));
   }
 
   signup(){
@@ -37,13 +49,8 @@ export class SignupPage {
     console.log("Email:" + this.myForm.value.email);
     console.log("Username:" + this.myForm.value.username);
     console.log("Password:" + this.myForm.value.password);
-    this.nativeStorage.setItem('myitem',{
-      name: this.myForm.value.name,
-      email: this.myForm.value.email,
-      username: this.myForm.value.username,
-      password: this.myForm.value.password
-    })
-    .then(
+
+    this.nativeStorage.setItem(this.usuario.username,this.usuario).then(
       ()=> {
         console.log("stored user");
         
