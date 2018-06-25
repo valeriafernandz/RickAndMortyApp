@@ -8,7 +8,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
   <img src="../assets/imgs/logoram.png" alt="">
 
@@ -17,21 +17,21 @@
       <ion-avatar item-start>
         <img src="../assets/imgs/rickgif.gif" alt="">
       </ion-avatar>
-      <h1>Valeria Fernandez</h1>
-      <span><strong>Status: </strong></span><br>
-      <span><strong>Species: </strong></span><br>
-      <span><strong>Gender: </strong></span><br>
-      <span><strong>Origin: </strong></span><br>
-      <span><strong>Location: </strong></span><br>
+      <h1>{{this.user.name}}</h1>
+      <!-- <span *ngFor="let key of keys"><strong>{{key}}: </strong>{{user[key]}}</span><br> -->
+      <span><strong>Status: </strong>{{this.user.status}}</span><br>
+      <span><strong>Species: </strong>{{this.user.species}}</span><br>
+      <span><strong>Gender: </strong>{{this.user.gender}}</span><br>
+      <span><strong>Origin: </strong>{{this.user.origin}}</span><br>
+      <span><strong>Location: </strong>{{this.user.location}}</span><br>
     </ion-item>
   </ion-card>
 
-  <ion-content class="card-background-page">
-    <ion-card>
-      <img src="../assets/imgs/backg2.jpg" alt="">
+  
+    <ion-card class="card-background-page">
+      <img src="../assets/imgs/backg2.jpg" (doubleclick)="tapped()" alt="">
       <div class="card-title">Rick and Morty</div>
       <div class="card-subtitle">Favorites</div>
     </ion-card>
-  </ion-content>
 
 </ion-content>
