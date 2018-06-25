@@ -13,8 +13,6 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
   loginForm: FormGroup;
-  private username: string;
-  private password: string;
   
 
   constructor(
@@ -42,7 +40,7 @@ export class LoginPage {
     console.log("Username:" + this.loginForm.value.username);
     console.log("Password:" + this.loginForm.value.password);
     
-    this.nativeStorage.getItem(this.username).then(
+    this.nativeStorage.getItem('myitem').then(
       data => {
         console.log(data);
         this.navCtrl.push(HomePage);
