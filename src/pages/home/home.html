@@ -22,7 +22,7 @@
   <span><strong>Gender: </strong>{{i.gender}}</span><br>
   <span><strong>Origin: </strong>{{i.origin.name}}</span><br>
   <span><strong>Location: </strong>{{i.location.name}}</span><br><br>
-  <button  ion-button icon-left clear icon-only (click)="like()" >
+  <button  ion-button icon-left clear icon-only (click)="favorite(i.id)" >
       <ion-icon name="star" size="large"></ion-icon>
     </button>
 </ion-card-content>

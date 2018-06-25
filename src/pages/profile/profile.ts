@@ -16,7 +16,7 @@ import {Storage} from '@ionic/storage';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-  user : any= {name:'', email:'', username:'', password:'', status: '', species:'', gender:'', origin:'',location:''}
+  user : any= {name:'', email:'', username:'', password:'', status: '', species:'', gender:'', origin:'',location:'',favorites:[]}
   keys:string[];
   constructor(public navCtrl: NavController, public navParams: NavParams,public nativeStorage:NativeStorage,public storage:Storage) {
     

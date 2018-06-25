@@ -13,7 +13,7 @@ import { LoginPage } from '../login/login';
 })
 export class SignupPage {
   myForm: FormGroup;
-  usuario : any= {name:'', email:'', username:'', password:'', status: '', species:'', gender:'', origin:'',location:''}
+  usuario : any= {name:'', email:'', username:'', password:'', status: '', species:'', gender:'', origin:'',location:'',favorites:[]}
   
   constructor(
     public navCtrl: NavController, 
@@ -50,8 +50,11 @@ export class SignupPage {
 
       Object.keys(this.usuario).map((key)=>{
         console.log("key to store: "+key);
+        if(key!=="favorites"){
         this.usuario[key]=this.myForm.value[key];
-
+        }else{
+          this.usuario[key]=[];
+        }
       })
     this.nativeStorage.setItem(this.usuario.username,this.usuario).then(
       ()=> {
