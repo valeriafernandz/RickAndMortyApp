@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage,AlertController, NavController, NavParams} from 'ionic-angular';
+import {Storage} from '@ionic/storage';
 import { SignupPage } from '../signup/signup';
 import { NativeStorage } from "@ionic-native/native-storage";
 import { FormBuilder , FormGroup , Validators } from '@angular/forms';
-import { HomePage } from '../home/home';
+import { ProfilePage } from '../profile/profile';
 
 
 @IonicPage()
@@ -16,10 +17,12 @@ export class LoginPage {
   
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
+    public alertCtrl: AlertController, 
     public navParams: NavParams,
     public nativeStorage: NativeStorage,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    public storage:Storage
   ) {
     this.loginForm = this.formBuilder.group({
       username:['',Validators.required],
@@ -40,12 +43,25 @@ export class LoginPage {
     console.log("Username:" + this.loginForm.value.username);
     console.log("Password:" + this.loginForm.value.password);
     
-    this.nativeStorage.getItem('myitem').then(
-      data => {
-        console.log(data);
-        this.navCtrl.push(HomePage);
+    this.nativeStorage.getItem(this.loginForm.value.username).then(
+      user => {
+        console.log("logged in user:  "+JSON.stringify(user));
+        if(this.loginForm.value.password===user.password){
+          console.log("storing in localstorage: "+user.username)
+          this.storage.set("username",user.username).then((username)=>{
+            console.log("stored in local: "+username);
+            this.navCtrl.setRoot(ProfilePage);
+          });
+          
+        }else{
+          let alert =this.alertCtrl.create({
+            title:"Incorrect password",
+            buttons:['OK']
+          });
+          alert.present();
 
-        alert(JSON.stringify(data));
+          
+        }
       }, error => console.error(error)
     );
   }

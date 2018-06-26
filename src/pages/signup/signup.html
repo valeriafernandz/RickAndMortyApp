@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-navbar color="secondary">
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
@@ -10,21 +10,19 @@
 </ion-header>
 
 
+
 <ion-content padding>
+    <img src="../assets/imgs/logoram.png" alt="">
     <form [formGroup]="myForm" (ngSubmit)="signup()">
         <ion-list>
           <ion-item text-center>
+
           </ion-item>
           <ion-item>
               <ion-icon name="person" item-left></ion-icon>
               <ion-label stacked>Name:</ion-label>
               <ion-input  type="text" placeholder="Name" formControlName="name"></ion-input>
             </ion-item>
-            <ion-item>
-                <ion-icon name="person" item-left></ion-icon>
-                <ion-label stacked>Last Name:</ion-label>
-                <ion-input  type="text" placeholder="Last Name" formControlName="lastname"></ion-input>
-              </ion-item>
               <ion-item>
                   <ion-icon name="mail" item-left></ion-icon>
                   <ion-label stacked>Email:</ion-label>
@@ -41,9 +39,39 @@
             <ion-label stacked>Password:</ion-label>
             <ion-input  type="password" placeholder="Password" formControlName="password"></ion-input>
           </ion-item>
+
+          <ion-item>
+              <ion-icon name="stats" item-left></ion-icon>
+              <ion-label stacked>Status:</ion-label>
+              <ion-input  type="text" placeholder="Are you alive?" formControlName="status"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="people" item-left></ion-icon>
+                <ion-label stacked>Species:</ion-label>
+                <ion-input  type="text" placeholder="Are you human?" formControlName="species"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-icon name="transgender" item-left></ion-icon>
+                  <ion-label stacked>Gender:</ion-label>
+                  <ion-input  type="text" placeholder="Gender" formControlName="gender"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-icon name="home" item-left></ion-icon>
+                    <ion-label stacked>Origin:</ion-label>
+                    <ion-input  type="text" placeholder="Origin" formControlName="origin"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-icon name="home" item-left></ion-icon>
+                      <ion-label stacked>Location:</ion-label>
+                      <ion-input  type="text" placeholder="Location" formControlName="location"></ion-input>
+                    </ion-item>
+           
   
           <div padding>
-            <button ion-button block type="submit" [disabled]="!myForm.valid">Signup!</button>
+            <button ion-button block type="submit" color="secondary" [disabled]="!myForm.valid">Signup!</button>
           </div>
   
         </ion-list>
