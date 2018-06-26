@@ -1,13 +1,14 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="home">
+    <img src="../assets/imgs/rick.jpg" alt="">
 
   <ion-card *ngFor="let i of results">
     <img src="{{i.image}}" alt="">
@@ -16,12 +17,16 @@
   <ion-card-title>
     {{i.name}}
   </ion-card-title>
-  <span>Status: {{i.status}}</span><br>
-  <span>Species: {{i.species}}</span><br>
-  <span>Gender: {{i.gender}}</span><br>
-  <span>Origin: {{i.origin.name}}</span><br>
-  <span>Location: {{i.location.name}}</span><br>
+  <span><strong>Status: </strong>{{i.status}}</span><br>
+  <span><strong>Species: </strong>{{i.species}}</span><br>
+  <span><strong>Gender: </strong>{{i.gender}}</span><br>
+  <span><strong>Origin: </strong>{{i.origin.name}}</span><br>
+  <span><strong>Location: </strong>{{i.location.name}}</span><br><br>
+  <button  ion-button icon-left clear icon-only (click)="favorite(i.id)" >
+      <ion-icon name="star" size="large"></ion-icon>
+    </button>
 </ion-card-content>
+  
 </ion-card>
 
 

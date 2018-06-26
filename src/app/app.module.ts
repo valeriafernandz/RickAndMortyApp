@@ -12,6 +12,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpRequestProvider } from '../providers/http-request/http-request';
+import { ProfilePage } from '../pages/profile/profile';
+import { IonicStorageModule } from '@ionic/storage';
+import { FavoritesPage } from '../pages/favorites/favorites';
 
 
 @NgModule({
@@ -19,19 +22,24 @@ import { HttpRequestProvider } from '../providers/http-request/http-request';
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    ProfilePage,
+    FavoritesPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    ProfilePage,
+    FavoritesPage
   ],
   providers: [
     StatusBar,
