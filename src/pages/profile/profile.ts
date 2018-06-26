@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NativeStorage } from '@ionic-native/native-storage';
 import {Storage} from '@ionic/storage';
+import { FavoritesPage } from '../favorites/favorites';
 
 /**
  * Generated class for the ProfilePage page.
@@ -24,7 +25,7 @@ export class ProfilePage {
 
   
   tapped(){
-    console.log("user tapped image twice")
+    this.navCtrl.push(FavoritesPage)
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
@@ -35,8 +36,8 @@ export class ProfilePage {
           })
         
            this.keys=Object.keys(this.user);
-          console.log("keys"+this.keys);
-      console.log("user: "+this.user);
+          console.log("keys:  "+this.keys);
+      console.log("user: "+JSON.stringify(this.user));
       })
       
       

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { HttpRequestProvider } from "../../providers/http-request/http-request";
 import { NativeStorage } from "@ionic-native/native-storage";
 import {Storage} from '@ionic/storage';
@@ -14,12 +14,13 @@ export class HomePage {
     public navCtrl: NavController,
     private requestProvider: HttpRequestProvider,
     private nativeStorage: NativeStorage,
-    private storage:Storage
+    private storage:Storage,
+    private toastCtrl:ToastController
   ) {}
 
   results = [];
   page: number = 1;
-
+  user:any;
   ionViewDidLoad(){
     this.requestProvider.getCharacters(this.page).subscribe(data =>{
       console.log(data);
@@ -51,15 +52,32 @@ export class HomePage {
     this.storage.get("username").then((username)=>{
       console.log("username from local storage: "+username)
       this.nativeStorage.getItem(username).then((user)=>{
-        console.log("user from native storage: "+user.username);
-        console.log("post to push: "+this.results.find((result)=>result.id===id).name)
-        //no esta entrando a esta parte porque no agarra el user de el get i guess, user.favorites is undefined
-          this.nativeStorage.setItem(user.username,{favorites:user.favorites.push(this.results.find((result)=>result.id===id))}).then((user)=>{
-            console.log("user already modified: "+user.username)
-            user.favorites.map(favorite=>console.log(favorite))
-          })
-      })
-    })
+        console.log("user from native storage: "+JSON.stringify(user));
+        let char =this.results.find((result)=>result.id===id);
+        console.log("post to push: "+char.name)
+        this.user=user;
+        let length =this.user.favorites.push(char);
+        console.log("length of favorite array: "+length)
+        
+        console.log("this.user= "+JSON.stringify(this.user))
+
+
+        this.nativeStorage.setItem(this.user.username,this.user).then(
+          ()=> {
+            console.log("stored user"+JSON.stringify(this.user));
+            let toast= this.toastCtrl.create({
+              message:"Added to Favorites!",
+            duration:1000,
+            position:"top"
+            });
+            toast.present();
+          },
+          error => console.error("Error registering user",error)
+        );
+      });
+    });
+        
+      
   }
 
 }

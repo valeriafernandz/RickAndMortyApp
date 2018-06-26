@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpRequestProvider } from '../providers/http-request/http-request';
 import { ProfilePage } from '../pages/profile/profile';
 import { IonicStorageModule } from '@ionic/storage';
+import { FavoritesPage } from '../pages/favorites/favorites';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     LoginPage,
     SignupPage,
-    ProfilePage
+    ProfilePage,
+    FavoritesPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     LoginPage,
     SignupPage,
-    ProfilePage
+    ProfilePage,
+    FavoritesPage
   ],
   providers: [
     StatusBar,

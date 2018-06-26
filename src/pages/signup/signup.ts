@@ -58,7 +58,7 @@ export class SignupPage {
       })
     this.nativeStorage.setItem(this.usuario.username,this.usuario).then(
       ()=> {
-        console.log("stored user");
+        console.log("stored user"+this.usuario);
         
         this.navCtrl.setRoot(LoginPage);
       },

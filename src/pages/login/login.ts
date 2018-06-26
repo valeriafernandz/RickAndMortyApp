@@ -45,7 +45,7 @@ export class LoginPage {
     
     this.nativeStorage.getItem(this.loginForm.value.username).then(
       user => {
-        console.log(user.password);
+        console.log("logged in user:  "+JSON.stringify(user));
         if(this.loginForm.value.password===user.password){
           console.log("storing in localstorage: "+user.username)
           this.storage.set("username",user.username).then((username)=>{
