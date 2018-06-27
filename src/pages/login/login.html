@@ -9,10 +9,14 @@
 
 
 <ion-content padding class="content">
-    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="form">
+      <ion-item text-center>
+          <!-- <img src="../assets/imgs/rickandm.png" alt="" width="300" height="400"> -->
+      </ion-item>
+      
+      
       <ion-list>
-        <ion-item text-center>
-        </ion-item>
+        
         <ion-item>
           <ion-icon name="person" item-left></ion-icon>
           <ion-label stacked>Username:</ion-label>

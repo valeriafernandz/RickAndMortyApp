@@ -12,12 +12,11 @@
 
 
 <ion-content padding>
-    <img src="../assets/imgs/logoram.png" alt="">
-    <form [formGroup]="myForm" (ngSubmit)="signup()">
+    
+    
+    <form [formGroup]="myForm" (ngSubmit)="signup()" class="form">
+        <img src="../assets/imgs/logoram.png" alt="" class="imglogo">
         <ion-list>
-          <ion-item text-center>
-
-          </ion-item>
           <ion-item>
               <ion-icon name="person" item-left></ion-icon>
               <ion-label stacked>Name:</ion-label>

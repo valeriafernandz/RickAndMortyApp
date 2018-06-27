@@ -3,11 +3,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
+    <button ion-button icon-right clear icon-only (click)="logout()" *ngIf="storage.get('loggedIn')==true">
+      <ion-icon name="log-out"></ion-icon>
+    </button>
     <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="home">
+ 
     <img src="../assets/imgs/rick.jpg" alt="">
 
   <ion-card *ngFor="let i of results">
@@ -16,6 +20,8 @@
 <ion-card-content>
   <ion-card-title>
     {{i.name}}
+    
+    
   </ion-card-title>
   <span><strong>Status: </strong>{{i.status}}</span><br>
   <span><strong>Species: </strong>{{i.species}}</span><br>
@@ -23,7 +29,7 @@
   <span><strong>Origin: </strong>{{i.origin.name}}</span><br>
   <span><strong>Location: </strong>{{i.location.name}}</span><br><br>
   <button  ion-button icon-left clear icon-only (click)="favorite(i.id)" >
-      <ion-icon name="star" size="large"></ion-icon>
+      <ion-icon name="star" size="large" *ngIf="loggedIn==true"></ion-icon>
     </button>
 </ion-card-content>
   

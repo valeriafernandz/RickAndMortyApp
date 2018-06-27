@@ -3,6 +3,7 @@ import { NavController, ToastController } from 'ionic-angular';
 import { HttpRequestProvider } from "../../providers/http-request/http-request";
 import { NativeStorage } from "@ionic-native/native-storage";
 import {Storage} from '@ionic/storage';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -22,6 +23,16 @@ export class HomePage {
   page: number = 1;
   user:any;
   ionViewDidLoad(){
+    this.storage.get("loggedIn").then((loggedIn)=>{
+  
+        if(loggedIn==true){
+          
+
+        }
+
+      
+    });
+    
     this.requestProvider.getCharacters(this.page).subscribe(data =>{
       console.log(data);
       
@@ -31,7 +42,9 @@ export class HomePage {
       console.log(this.results);
       this.page+=1;
     });
+    
   }
+
 
   doInfinite(infiniteScroll){
     console.log("Begin async operation");
@@ -68,7 +81,8 @@ export class HomePage {
             let toast= this.toastCtrl.create({
               message:"Added to Favorites!",
             duration:1000,
-            position:"top"
+            position:"top",
+            cssClass:"toast"
             });
             toast.present();
           },
@@ -78,6 +92,10 @@ export class HomePage {
     });
         
       
+  }
+
+  logout() {
+    
   }
 
 }

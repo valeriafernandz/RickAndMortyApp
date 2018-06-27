@@ -46,10 +46,14 @@ export class LoginPage {
     this.nativeStorage.getItem(this.loginForm.value.username).then(
       user => {
         console.log("logged in user:  "+JSON.stringify(user));
+        
         if(this.loginForm.value.password===user.password){
           console.log("storing in localstorage: "+user.username)
           this.storage.set("username",user.username).then((username)=>{
             console.log("stored in local: "+username);
+            this.storage.set("loggedIn",true).then((loggedIn)=>{
+              console.log("loggeado "+loggedIn);
+            });
             this.navCtrl.setRoot(ProfilePage);
           });
           
