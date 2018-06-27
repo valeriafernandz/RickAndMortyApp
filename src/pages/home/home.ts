@@ -10,6 +10,7 @@ import { LoginPage } from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  logged: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -24,15 +25,8 @@ export class HomePage {
   user:any;
   ionViewDidLoad(){
     this.storage.get("loggedIn").then((loggedIn)=>{
-  
-        if(loggedIn==true){
-          
-
-        }
-
-      
-    });
-    
+      this.logged = loggedIn;
+      });
     this.requestProvider.getCharacters(this.page).subscribe(data =>{
       console.log(data);
       
@@ -42,9 +36,9 @@ export class HomePage {
       console.log(this.results);
       this.page+=1;
     });
+
     
   }
-
 
   doInfinite(infiniteScroll){
     console.log("Begin async operation");
@@ -95,7 +89,7 @@ export class HomePage {
   }
 
   logout() {
-    
+    this.navCtrl.setRoot(LoginPage);
   }
 
 }

@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <button ion-button icon-right clear icon-only (click)="logout()" *ngIf="storage.get('loggedIn')==true">
+    <button ion-button icon-right clear icon-only (click)="logout()" *ngIf="logged">
       <ion-icon name="log-out"></ion-icon>
     </button>
     <ion-title></ion-title>
@@ -11,7 +11,6 @@
 </ion-header>
 
 <ion-content padding class="home">
- 
     <img src="../assets/imgs/rick.jpg" alt="">
 
   <ion-card *ngFor="let i of results">
@@ -20,8 +19,6 @@
 <ion-card-content>
   <ion-card-title>
     {{i.name}}
-    
-    
   </ion-card-title>
   <span><strong>Status: </strong>{{i.status}}</span><br>
   <span><strong>Species: </strong>{{i.species}}</span><br>
