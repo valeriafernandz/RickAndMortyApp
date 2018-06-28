@@ -10,6 +10,18 @@
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
+      <!-- <button menuClose ion-item  (click)="openPage(homePage)">
+          Home
+        </button>  
+      <button menuClose ion-item  *ngIf="checkLogged()"(click)="openPage(loginPage)">
+         Login
+      </button>
+      <button menuClose ion-item  *ngIf="checkLogged()"(click)="openPage(signupPage)">
+        Sign up
+      </button> 
+      <button menuClose ion-item  *ngIf="!checkLogged()"(click)="openPage(profilePage)">
+        Profile
+      </button>      -->
     </ion-list>
   </ion-content>
 

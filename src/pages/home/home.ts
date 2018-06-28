@@ -10,7 +10,7 @@ import { LoginPage } from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  logged: boolean;
+  loggedIn: boolean=false;
 
   constructor(
     public navCtrl: NavController,
@@ -25,7 +25,8 @@ export class HomePage {
   user:any;
   ionViewDidLoad(){
     this.storage.get("loggedIn").then((loggedIn)=>{
-      this.logged = loggedIn;
+      this.loggedIn = loggedIn;
+      console.log("logged in: "+this.loggedIn)
       });
     this.requestProvider.getCharacters(this.page).subscribe(data =>{
       console.log(data);
@@ -89,6 +90,7 @@ export class HomePage {
   }
 
   logout() {
+    this.storage.clear();
     this.navCtrl.setRoot(LoginPage);
   }
 

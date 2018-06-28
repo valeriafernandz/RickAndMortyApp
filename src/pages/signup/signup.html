@@ -40,34 +40,73 @@
           </ion-item>
 
           <ion-item>
+                
               <ion-icon name="stats" item-left></ion-icon>
               <ion-label stacked>Status:</ion-label>
-              <ion-input  type="text" placeholder="Are you alive?" formControlName="status"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-icon name="people" item-left></ion-icon>
-                <ion-label stacked>Species:</ion-label>
-                <ion-input  type="text" placeholder="Are you human?" formControlName="species"></ion-input>
+              <ion-select [(ngModel)]="status" formControlName="status" placeholder="Are you alive?">
+                  <ion-option value="Alive">Alive</ion-option>
+                  <ion-option value="Dead">Dead</ion-option>
+                  <ion-option value="Unknown">Unknown</ion-option>
+                </ion-select>
               </ion-item>
-              <ion-item>
-                  <ion-icon name="transgender" item-left></ion-icon>
-                  <ion-label stacked>Gender:</ion-label>
-                  <ion-input  type="text" placeholder="Gender" formControlName="gender"></ion-input>
-                </ion-item>
 
-                <ion-item>
-                    <ion-icon name="home" item-left></ion-icon>
-                    <ion-label stacked>Origin:</ion-label>
-                    <ion-input  type="text" placeholder="Origin" formControlName="origin"></ion-input>
+              <ion-item>
+                  <ion-icon name="people" item-left></ion-icon>
+                  <ion-label stacked>Species:</ion-label>
+                  <ion-select [(ngModel)]="species" formControlName="species" placeholder="Are you human?">
+                      <ion-option value="Human">Human</ion-option>
+                      <ion-option value="Alien">Alien</ion-option>
+                      <ion-option value="Humanoid">Humanoid</ion-option>
+                      <ion-option value="Poopybutthole">Poopybutthole</ion-option>
+                      <ion-option value="Mytholog">Mytholog</ion-option>
+                      <ion-option value="Animal">Animal</ion-option>
+                      <ion-option value="Unknown">Unknown</ion-option>
+                    </ion-select>
                   </ion-item>
 
+
+              <ion-item>
+                
+                  <ion-icon name="transgender" item-left></ion-icon>
+                  <ion-label stacked>Gender:</ion-label>
+                  <ion-select [(ngModel)]="gender" formControlName="gender" placeholder="Gender">
+                      <ion-option value="Female">Female</ion-option>
+                      <ion-option value="Male">Male</ion-option>
+                      <ion-option value="Other">Other</ion-option>
+                    </ion-select>
+                  </ion-item>
                   <ion-item>
                       <ion-icon name="home" item-left></ion-icon>
-                      <ion-label stacked>Location:</ion-label>
-                      <ion-input  type="text" placeholder="Location" formControlName="location"></ion-input>
-                    </ion-item>
-           
+                      <ion-label stacked>Origin:</ion-label>
+                      <ion-select [(ngModel)]="origin" formControlName="origin" placeholder="Origin">
+                          <ion-option value="Earth (C-137)">Earth (C-137)</ion-option>
+                          <ion-option value="Earth (Replacement Dimension)">Earth (Replacement Dimension)</ion-option>
+                          <ion-option value="Abadango">Abadango</ion-option>
+                          <ion-option value="Interdimensional Cable">Interdimensional Cable</ion-option>
+                          <ion-option value="Citadel of Ricks">Citadel of Ricks</ion-option>
+                          <ion-option value="Signus 5 Expanse">Signus 5 Expanse</ion-option>
+                          <ion-option value="Post-Apocalyptic Earth">Post-Apocalyptic Earth</ion-option>
+                          <ion-option value="Purge Planet">Purge Planet</ion-option>
+                          <ion-option value="Anatomy Park">Anatomy Park</ion-option>
+                          <ion-option value="Unknown">Unknown</ion-option>
+                        </ion-select>
+                      </ion-item>
+                      <ion-item>
+                          <ion-icon name="home" item-left></ion-icon>
+                          <ion-label stacked>Location:</ion-label>
+                          <ion-select [(ngModel)]="location" formControlName="location" placeholder="Location">
+                              <ion-option value="Earth (C-137)">Earth (C-137)</ion-option>
+                          <ion-option value="Earth (Replacement Dimension)">Earth (Replacement Dimension)</ion-option>
+                          <ion-option value="Abadango">Abadango</ion-option>
+                          <ion-option value="Interdimensional Cable">Interdimensional Cable</ion-option>
+                          <ion-option value="Citadel of Ricks">Citadel of Ricks</ion-option>
+                          <ion-option value="Signus 5 Expanse">Signus 5 Expanse</ion-option>
+                          <ion-option value="Post-Apocalyptic Earth">Post-Apocalyptic Earth</ion-option>
+                          <ion-option value="Purge Planet">Purge Planet</ion-option>
+                          <ion-option value="Anatomy Park">Anatomy Park</ion-option>
+                          <ion-option value="Unknown">Unknown</ion-option>
+                            </ion-select>
+                          </ion-item>
   
           <div padding>
             <button ion-button block type="submit" color="secondary" [disabled]="!myForm.valid">Signup!</button>

@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NativeStorage } from "@ionic-native/native-storage";
 import { FormBuilder , FormGroup, Validators } from '@angular/forms';
-import { HomePage } from '../home/home';
 import { LoginPage } from '../login/login';
+import { Storage } from '@ionic/storage';
+import { ProfilePage } from '../profile/profile';
 
 
 @IonicPage()
@@ -19,7 +20,8 @@ export class SignupPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private nativeStorage: NativeStorage,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    private storage:Storage
   ) {
     this.myForm = this.formBuilder.group({
       name:['', Validators.required],
@@ -37,6 +39,12 @@ export class SignupPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
+    this.storage.get("loggedIn").then((loggedIn)=>{
+      if(loggedIn){
+        this.navCtrl.setRoot(ProfilePage);
+      }
+    })
+    
    
   }
 

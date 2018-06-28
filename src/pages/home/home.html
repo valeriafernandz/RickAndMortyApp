@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <button ion-button icon-right clear icon-only (click)="logout()" *ngIf="logged">
+    <button *ngIf="loggedIn" ion-button icon-right clear icon-only (click)="logout()" >
       <ion-icon name="log-out"></ion-icon>
     </button>
     <ion-title></ion-title>
@@ -25,8 +25,8 @@
   <span><strong>Gender: </strong>{{i.gender}}</span><br>
   <span><strong>Origin: </strong>{{i.origin.name}}</span><br>
   <span><strong>Location: </strong>{{i.location.name}}</span><br><br>
-  <button  ion-button icon-left clear icon-only (click)="favorite(i.id)" >
-      <ion-icon name="star" size="large" *ngIf="loggedIn==true"></ion-icon>
+  <button  *ngIf="loggedIn" ion-button icon-left clear icon-only (click)="favorite(i.id)" >
+      <ion-icon name="star" size="large" ></ion-icon>
     </button>
 </ion-card-content>
   

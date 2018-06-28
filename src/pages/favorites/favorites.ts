@@ -24,11 +24,27 @@ export class FavoritesPage {
       this.storage.get("username").then((username)=>{
 
         this.nativeStorage.getItem(username).then((user)=>{
-          console.log("favorite array=  "+user.favorites)
           this.favorites=user.favorites;
           })
         });
 
   }
+
+
+  delete(id){
+    this.storage.get("username").then((username)=>{
+      let index= this.favorites.findIndex((favorite)=>favorite.id==id);
+      this.favorites.splice(index,1);
+      this.nativeStorage.getItem(username).then((user)=>{
+        user.favorites=this.favorites;
+        this.nativeStorage.setItem(user.username,user).then(()=>{
+                  console.log("deleted favorite")
+        },error=>{console.error("error en set item")})
+      })
+    })
+   
+  }
+
+  
 
 }

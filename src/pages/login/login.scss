@@ -1,11 +1,15 @@
 page-login {
     ion-content{
-        background-image: url('../assets/imgs/rickcool2.jpg');
+        background-image: url('../assets/imgs/backgroundlol.jpg');
         background-size: cover;
         
        .form ion-item{
+        border-color: rgba(0, 0, 0, 0);
+        background-color: rgba(0, 0, 0, 0);
+        color: white; 
            
        
        }
+       
     }
 }

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="secondary">
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
@@ -9,12 +9,9 @@
 
 
 <ion-content padding class="content">
+    
     <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="form">
-      <ion-item text-center>
-          <!-- <img src="../assets/imgs/rickandm.png" alt="" width="300" height="400"> -->
-      </ion-item>
-      
-      
+        <img src="../assets/imgs/logoram.png" alt="" class="imglogo">
       <ion-list>
         
         <ion-item>
@@ -29,7 +26,7 @@
           <ion-input  type="password" placeholder="Password" formControlName="password"></ion-input>
         </ion-item>
         <div padding>
-          <button ion-button block type="submit" [disabled]= "!loginForm.valid" color="primary">Login</button>
+          <button ion-button block type="submit" [disabled]= "!loginForm.valid" color="secondary">Login</button>
         </div>
 
       </ion-list>

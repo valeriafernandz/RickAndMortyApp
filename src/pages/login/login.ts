@@ -33,6 +33,12 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    this.storage.get("loggedIn").then((loggedIn)=>{
+      if(loggedIn){
+          this.navCtrl.setRoot(ProfilePage)
+      }
+    })
+    
   }
 
   goToSignup(){

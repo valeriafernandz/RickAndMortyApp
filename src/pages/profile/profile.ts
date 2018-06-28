@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NativeStorage } from '@ionic-native/native-storage';
 import {Storage} from '@ionic/storage';
 import { FavoritesPage } from '../favorites/favorites';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the ProfilePage page.
@@ -28,6 +29,11 @@ export class ProfilePage {
     this.navCtrl.push(FavoritesPage)
   }
   ionViewDidLoad() {
+    this.storage.get("loggedIn").then((loggedIn)=>{
+      if(!loggedIn || loggedIn==null){
+        this.navCtrl.setRoot(LoginPage);
+      }
+    })
     console.log('ionViewDidLoad ProfilePage');
       this.storage.get("username").then((username)=>{
         console.log("fetched username from localstorage: "+username)
