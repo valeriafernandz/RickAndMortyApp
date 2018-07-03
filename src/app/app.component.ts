@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ProfilePage } from '../pages/profile/profile';
-import {Storage} from '@ionic/storage'
+  // import {Storage} from '@ionic/storage'
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +22,7 @@ export class MyApp {
   // loginPage:LoginPage;
   // signupPage:SignupPage;
   // profilePage:ProfilePage;
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private storage:Storage) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation

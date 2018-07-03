@@ -30,7 +30,7 @@ export class ProfilePage {
   }
   ionViewDidLoad() {
     this.storage.get("loggedIn").then((loggedIn)=>{
-      if(!loggedIn || loggedIn==null){
+      if(!loggedIn || loggedIn==null || loggedIn==undefined){
         this.navCtrl.setRoot(LoginPage);
       }
     })
